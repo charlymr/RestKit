@@ -7,6 +7,12 @@ target :RestKit do
   podspec
 end
 
+target :RestKitiOSFramework do
+    platform :ios, '8.0'
+    use_frameworks!
+    podspec
+end
+
 target :RestKitFramework do
   platform :osx, '10.7'
   podspec
@@ -31,6 +37,12 @@ target :ios do
   platform :ios, '5.1.1'
   link_with 'RestKitTests'
   import_pods
+end
+
+target :ios do
+    platform :ios, '8.0'
+    link_with 'RestKitiOSFrameworkTests'
+    use_frameworks!
 end
 
 target :osx do
