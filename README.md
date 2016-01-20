@@ -611,6 +611,60 @@ $ open MyProject.xcworkspace
 
 Please note that if your installation fails, it may be because you are installing with a version of Git lower than CocoaPods is expecting. Please ensure that you are running Git **>= 1.8.0** by executing `git --version`. You can get a full picture of the installation details by executing `pod install --verbose`.
 
+
+### via CocoaPods for a project including Swift Frameworks [iOS 8.0 or higher and Experimental]
+
+Install CocoaPods 0.39.0 if not already available:
+
+``` bash
+$ [sudo] gem install cocoapods -v 0.39.0
+$ pod setup
+```
+
+Change to the directory of your Xcode project, and Create and Edit your Podfile and add RestKit:
+
+``` bash
+$ cd /path/to/MyProject
+$ touch Podfile
+$ edit Podfile
+
+source 'https://github.com/CocoaPods/Specs'
+
+platform :ios, '8.0'
+use_frameworks!
+
+# Install the [Experimental Branch] !!!! Use ate your own risks!
+pod 'RestKit', :git => 'git@github.com:Charlymr/RestKit.git'
+
+# Allow non-modular frameworks... This is not the best way to sort this problem as it will cause trouble for Swift debugging but it is working for now!!
+post_install do |installer|
+    installer.pods_project.build_configuration_list.build_configurations.each do |configuration|
+        configuration.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+    end
+end
+
+# Testing and Search are optional components
+pod 'RestKit/Testing', '~> 0.26.0'
+pod 'RestKit/Search',  '~> 0.26.0'
+
+
+```
+
+Install into your project using Cocoapods 0.39:
+
+``` bash
+$ pod _0.39.0_ install
+```
+
+Open your project in Xcode from the .xcworkspace file (not the usual project file)
+
+``` bash
+$ open MyProject.xcworkspace
+```
+
+Please note that if your installation fails, it may be because you are installing with a version of Git lower than CocoaPods is expecting. Please ensure that you are running Git **>= 1.8.0** by executing `git --version`. You can get a full picture of the installation details by executing `pod install --verbose`.
+
+
 ### From a Release Package or as a Git submodule
 
 Detailed installation instructions are available in the [Visual Install Guide](https://github.com/RestKit/RestKit/wiki/Installing-RestKit-v0.20.x-as-a-Git-Submodule) on the Wiki.
