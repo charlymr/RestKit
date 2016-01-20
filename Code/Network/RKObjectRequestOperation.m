@@ -18,15 +18,15 @@
 //  limitations under the License.
 //
 
-#import <RestKit/Network/RKObjectRequestOperation.h>
-#import <RestKit/Network/RKResponseDescriptor.h>
-#import <RestKit/Network/RKResponseMapperOperation.h>
-#import <RestKit/ObjectMapping/RKHTTPUtilities.h>
-#import <RestKit/ObjectMapping/RKMappingErrors.h>
-#import <RestKit/Support/RKLog.h>
-#import <RestKit/Support/RKMIMETypeSerialization.h>
-#import <RestKit/Support/RKOperationStateMachine.h>
 #import <objc/runtime.h>
+#import "RKObjectRequestOperation.h"
+#import "RKResponseMapperOperation.h"
+#import "RKResponseDescriptor.h"
+#import "RKMIMETypeSerialization.h"
+#import "RKHTTPUtilities.h"
+#import "RKLog.h"
+#import "RKMappingErrors.h"
+#import "RKOperationStateMachine.h"
 
 #import <Availability.h>
 

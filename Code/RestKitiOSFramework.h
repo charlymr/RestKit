@@ -26,34 +26,4 @@ FOUNDATION_EXPORT const unsigned char RestKitiOSFrameworkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <RestKitiOSFramework/PublicHeader.h>
 
-
-#ifndef _RESTKIT_
-#define _RESTKIT_
-
-#if __has_include(<RestKit/ObjectMapping.h>)
-#import <RestKit/ObjectMapping.h>
-#endif
-
-#if __has_include(<RestKit/Network.h>)
-#import <RestKit/Network.h>
-#endif
-
-#if __has_include(<RestKit/Support.h>)
-#import <RestKit/Support.h>
-#endif
-
-#if __has_include(<RestKit/CoreData.h>)
-#import <RestKit/CoreData.h>
-#endif
-
-/**
- Set the App logging component. This header
- file is generally only imported by apps that
- are pulling in all of RestKit. By setting the
- log component to App here, we allow the app developer
- to use RKLog() in their own app.
- */
-#undef RKLogComponent
-#define RKLogComponent RKlcl_cApp
-
-#endif /* _RESTKIT_ */
+#import "RestKit.h"

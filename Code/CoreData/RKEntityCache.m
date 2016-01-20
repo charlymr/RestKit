@@ -22,8 +22,8 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#import <RestKit/CoreData/RKEntityByAttributeCache.h>
-#import <RestKit/CoreData/RKEntityCache.h>
+#import "RKEntityCache.h"
+#import "RKEntityByAttributeCache.h"
 
 @interface RKEntityCache ()
 @property (nonatomic, strong) NSMutableSet *attributeCaches;
